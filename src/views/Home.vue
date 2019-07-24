@@ -1,18 +1,46 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>MovieFinder is a search engine for movies</h2>
+
+    <div class='mf-search-form'>
+      <input v-model="searchFilm" placeholder="please type film title" />
+      <router-link :to="{ name: 'filmlist', params: { title: searchFilm }}">search</router-link>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'home',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      searchFilm: ''
+    }
   }
 }
 </script>
+
+<style lang="scss">
+  h2 {
+    color: red;
+  }
+  .mf-search-form {
+    input {
+      padding: 15px 20px;
+      width: 200px;
+      font-size: 18px;
+    }
+    a {
+      color: rgb(217, 255, 0);
+      font-weight: bold;
+      font-size: 16px;
+      background: rgb(70, 7, 218);
+      text-decoration: none;
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 20px 0;
+      border-radius: 4px;
+    }
+  }
+</style>
